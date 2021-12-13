@@ -7,12 +7,13 @@ import playsound
 from gtts import gTTS
 import os
 import random as r
+import phonenumbers
 
 OlexVoice = pyttsx3.init()
 
 rate = OlexVoice.getProperty('rate')
 
-OlexVoice.setProperty('rate', 146)
+OlexVoice.setProperty('rate', 146) 
 
 volume = OlexVoice.getProperty('volume')
 
@@ -87,8 +88,8 @@ while True:
         if "good morning" in text:
             OlexVoice.say("good morning.")
             OlexVoice.runAndWait()
-        if "write this down" in text:
-            OlexVoice.say("what is it you want to write down")
+        if "write this down for tomorrow" in text:
+            OlexVoice.say("what is it you want to write down for tomorrow")
             OlexVoice.runAndWait()
         
             text = get_command()
@@ -98,9 +99,20 @@ while True:
             OlexVoice.say('ok. done')
             OlexVoice.runAndWait()
             
-        if "what do I have today" in text:
+        if "what do I have tomorrow" in text:
             os.system('reminders.mp3')
-
+        if "write this down for today" in text:
+            OlexVoice.say("what is it you want to write down for today")
+            OlexVoice.runAndWait()
+        
+            text = get_command()
+            tts = gTTS(text=text, lang ="en")
+            filename = 'reminderss.mp3'
+            tts.save(filename)
+            OlexVoice.say('ok. done')
+            OlexVoice.runAndWait()
+        if "what do i have today":
+            os.system('reminderss.mp3')
         if "search" in text:
             OlexVoice.say("ok. search what")
             OlexVoice.runAndWait()
@@ -112,6 +124,21 @@ while True:
             OlexVoice.runAndWait()
             OlexVoice.say(result[:400])
             OlexVoice.runAndWait()
-        if "911 find" in text:
-            OlexVoice.say("whats the persons email you want to find")
+        if "emergency find" in text:
+            OlexVoice.say("whats the persons number you want to find. opening promt")
             OlexVoice.runAndWait()
+            number = input("phone number for location USE COUNTRY CODE: ")
+            OlexVoice.say("ok searching may take some time but i can hurry")
+            OlexVoice.runAndWait()
+            from phonenumbers import carrier
+            from phonenumbers import geocoder
+            ch_nmber = phonenumbers.parse(number, "CH")
+            OlexVoice.say('location' + geocoder.description_for_number(ch_nmber, "en"))
+            OlexVoice.runAndWait()
+
+            service_nmber = phonenumbers.parse(number, "RO")
+            print(carrier.name_for_number(service_nmber, "en"))
+            
+
+        if "sing" in text:
+            os.system('song.wav')
