@@ -6,3 +6,6 @@ this is an AI made in python that has write down function and search function
  THESE ARE CRITACAL FOR IT TO RUN CORRECTLY. so install them even pyaudio use the steps for install
 
 also note: i would perfer either linux mac or windows and vscode to run this AI. DO NOT USE AN ONLINE IDE IT WONT WORK reason why is beacuse they dont support speech_recognition.
+
+
+also im going to change 911 find to emergrncy find but this feature is not going to be used for malisous use its only use is to help find missing people or incase of emergency like if a 911 operator needs to find a location. as it doesnt do anything right now it will in the furture im going to get it done over christmas break.
