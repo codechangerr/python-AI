@@ -111,7 +111,7 @@ while True:
             tts.save(filename)
             OlexVoice.say('ok. done')
             OlexVoice.runAndWait()
-        if "what do i have today":
+        if "what do i have today" in text:
             os.system('reminderss.mp3')
         if "search" in text:
             OlexVoice.say("ok. search what")
@@ -124,21 +124,20 @@ while True:
             OlexVoice.runAndWait()
             OlexVoice.say(result[:400])
             OlexVoice.runAndWait()
-        if "emergency find" in text:
-            OlexVoice.say("whats the persons number you want to find. opening promt")
+        if "play State game" in text:
+            OlexVoice.say("current country your living in")
             OlexVoice.runAndWait()
-            number = input("phone number for location USE COUNTRY CODE: ")
-            OlexVoice.say("ok searching may take some time but i can hurry")
-            OlexVoice.runAndWait()
-            from phonenumbers import carrier
-            from phonenumbers import geocoder
-            ch_nmber = phonenumbers.parse(number, "CH")
-            OlexVoice.say('location' + geocoder.description_for_number(ch_nmber, "en"))
-            OlexVoice.runAndWait()
-
-            service_nmber = phonenumbers.parse(number, "RO")
-            print(carrier.name_for_number(service_nmber, "en"))
-            
+            country = get_command()
+            if 'America' in country:
+                OlexVoice.say("whats your phone number")
+                OlexVoice.runAndWait()
+                number = get_command()
+                from phonenumbers import carrier
+                from phonenumbers import geocoder
+                ch_nmber = phonenumbers.parse('+1' + number, "CH")
+                locate = ('your state you live in is ' + geocoder.description_for_number(ch_nmber, "en"))
+                OlexVoice.say(locate)
+                OlexVoice.runAndWait()
 
         if "sing" in text:
             os.system('song.wav')
