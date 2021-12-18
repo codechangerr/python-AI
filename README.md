@@ -1,14 +1,37 @@
-# python-AI
+everyone sorry for the confusion on the last respotory...
 
-if an error for cyptes you honestly dont need it as a requiremert
+the package commands are pip install speech_recogniton, pip install pyttsx3, pip install gTTS, pip install pyaudio, pip install playsound, pip install wikipedia, pip install phonenumbers.
 
-this is an AI made in python that has write down function and search function
- python 3.6.0 or higher is CRITACAL i would perfer python interpreter 3.6.9 beacuse thats what it was coded in.
- 
- anyways the pip reqirements are -pyttsx3 -speech_recognition -gTTS -os -wikipedia -pyaudio if you have an error go to https://www.lfd.uci.edu go to search type pyaudio open cmd from downloads then pip install py then hit tab you should see a bunch of stuff pop up hit enter and it will install if not then hit tab two times. -playsound -random
- -phonenumbers. THESE ARE CRITACAL FOR IT TO RUN CORRECTLY. so install them even pyaudio use the steps for install
+also before you run you dont need ctpyes so you can delete the import witch sould look like from ctpyes import odell
+                                                                                            import ctypes
+                                                                                           
+command list is:
 
-also note: i would perfer either linux mac or windows and vscode to run this AI. DO NOT USE AN ONLINE IDE IT WONT WORK reason why is beacuse they dont support speech_recognition.
+-write this down for today/tomorrow
+-search
+and many more so fell free to look at the code and see what you can do 
 
-
-also im going to change 911 find to emergrncy find but this feature is not going to be used for malisous use its only use is to help find missing people or incase of emergency like if a 911 operator needs to find a location. as it doesnt do anything right now it will in the furture im going to get it done over christmas break.
+commands should look like 
+-if "..." in text:
+    ...
+    
+READ BEFORE ANYTHING ELSE:
+    if trouble with pyausio then go to https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio and download the version of python your on
+    
+    version should look like 310 for python 3.10, 39 for python 3.9 acd ect.
+    
+    after follow these steps
+    
+    1: open file explorer
+    
+    2: go to downloads
+    
+    3: open cmd from downloads
+    
+    4: type in cmd pip install py then hit tab
+    
+    5: you should then see a bunch of stuff pop up un cmd hit enter to install package
+    
+    5:if you still have trouble then hit tab twice
+    
+    after these steps hit run
