@@ -1,5 +1,3 @@
-from ctypes import oledll
-import ctypes
 import pyaudio
 import pyttsx3
 import speech_recognition as sr
@@ -7,7 +5,6 @@ import playsound
 from gtts import gTTS
 import os
 import random as r
-import phonenumbers
 
 OlexVoice = pyttsx3.init()
 
@@ -22,7 +19,7 @@ OlexVoice.setProperty('volume', 1.0)
 voices = OlexVoice.getProperty('voices')
 OlexVoice.setProperty('voice', voices[1].id)
 
-OlexVoice.say("started monkey AI. use wakeword monkey")
+OlexVoice.say("started bod. use wake word bod.")
 
 OlexVoice.runAndWait() 
 
@@ -44,7 +41,8 @@ while True:
     
     text = getaudio()
 
-    if "monkey" in text:
+   
+    if "bod" in text:
         
         #will start to get audio again when the wake word is siad
         def get_command():
@@ -111,7 +109,7 @@ while True:
             tts.save(filename)
             OlexVoice.say('ok. done')
             OlexVoice.runAndWait()
-        if "what do i have today" in text:
+        if "what do I have today" in text:
             os.system('reminderss.mp3')
         if "search" in text:
             OlexVoice.say("ok. search what")
@@ -124,20 +122,10 @@ while True:
             OlexVoice.runAndWait()
             OlexVoice.say(result[:400])
             OlexVoice.runAndWait()
-        if "play State game" in text:
-            OlexVoice.say("current country your living in")
-            OlexVoice.runAndWait()
-            country = get_command()
-            if 'America' in country:
-                OlexVoice.say("whats your phone number")
-                OlexVoice.runAndWait()
-                number = get_command()
-                from phonenumbers import carrier
-                from phonenumbers import geocoder
-                ch_nmber = phonenumbers.parse('+1' + number, "CH")
-                locate = ('your state you live in is ' + geocoder.description_for_number(ch_nmber, "en"))
-                OlexVoice.say(locate)
-                OlexVoice.runAndWait()
-
+        
         if "sing" in text:
             os.system('song.wav')
+
+        if 'i didnt ask for you to turn on':
+            OlexVoice.say('ok ill close my thighs')
+            OlexVoice.runAndWait()
