@@ -1,3 +1,5 @@
+from ctypes import oledll
+import ctypes
 import pyaudio
 import pyttsx3
 import speech_recognition as sr
@@ -5,6 +7,7 @@ import playsound
 from gtts import gTTS
 import os
 import random as r
+import phonenumbers
 
 OlexVoice = pyttsx3.init()
 
@@ -126,6 +129,6 @@ while True:
         if "sing" in text:
             os.system('song.wav')
 
-        if 'i didnt ask for you to turn on':
+        if "I didn't ask for you to turn on" in text:
             OlexVoice.say('ok ill close my thighs')
             OlexVoice.runAndWait()
