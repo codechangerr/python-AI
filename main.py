@@ -1,5 +1,3 @@
-from ctypes import oledll
-import ctypes
 import pyaudio
 import pyttsx3
 import speech_recognition as sr
@@ -7,7 +5,27 @@ import playsound
 from gtts import gTTS
 import os
 import random as r
-import phonenumbers
+from tkinter import *
+import SpotifyClient
+import time
+
+app = Tk()
+app.title('user setup')
+
+app.geometry('1600x800')
+
+def startbod():
+    starting = Label(text='Ok starting Bod...')
+    starting.place(y = 160, x = 800)
+    app.destroy()
+
+welcome = Label(text='Plese press Start to start...', fg = 'blue', height = 90, width = 28)
+welcome.place(y = -10, x = 557)
+
+continuesetup = Button(text='Start Bod!', bg='teal', height=14, width=50, command = startbod)
+continuesetup.place(y = 350, x = 500)
+
+app.mainloop()
 
 OlexVoice = pyttsx3.init()
 
@@ -25,6 +43,7 @@ OlexVoice.setProperty('voice', voices[1].id)
 OlexVoice.say("started bod. use wake word bod.")
 
 OlexVoice.runAndWait() 
+
 
 #waits for the wakeword
 while True:
@@ -66,8 +85,14 @@ while True:
         OlexVoice.runAndWait()
         text=get_command()
         
+        if 'set name' in text:
+            OlexVoice.say('ok set name to what')
+            OlexVoice.runAndWait()
+            name = get_command()
+            OlexVoice.say('ok. set name to ' + name)
+
         if 'hello' in text:
-            OlexVoice.say("hello")
+            OlexVoice.say("hello" + name)
             OlexVoice.runAndWait()
 
         if 'are you always listening' in text:
@@ -132,3 +157,18 @@ while True:
         if "I didn't ask for you to turn on" in text:
             OlexVoice.say('ok ill close my thighs')
             OlexVoice.runAndWait()
+
+        if 'play a random song' in text:
+            import SpotifyClient
+            from SpotifyClient import SpotifyClientt
+            def playmsc():
+                spotify_client = SpotifyClientt(os.getenv('SPOTIFY_AUTH_TOKEN'))
+                random_tracks = spotify_client.get_random_tracks()
+                track_ids = [track['id'] for track in random_tracks]
+
+                was_added_to_lib = spotify_client.add_tracks_to_lib(track_ids)
+                if was_added_to_lib:
+                    for track in random_tracks:
+                        OlexVoice.say(f"added the random song {track['name']} to library")
+                        OlexVoice.runAndWait()
+        
