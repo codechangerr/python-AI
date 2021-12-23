@@ -1,3 +1,12 @@
+#major Update
+
+- adds a gui at the beggining for a starup
+- adds a random song feature
+- and you dont have do do any other pip installs
+- you do have to go to the bottom of the code and look for SPOTIFY_AUTH_TOKEN and change it to a spoitfy auth token that or you can just skip this step
+
+
+
 the package commands are pip install speech_recogniton, pip install pyttsx3, pip install gTTS, pip install pyaudio, pip install playsound, pip install wikipedia, pip install phonenumbers.
      
 removed ctypes beacuse the program doesnt use it and geocoder beacuse that was just retarded.
